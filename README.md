@@ -7,8 +7,10 @@
 [![MIT License](https://img.shields.io/github/license/ewjoachim/powernap?logo=open-source-initiative&logoColor=white)](https://github.com/ewjoachim/powernap/blob/main/LICENSE.md)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/ewjoachim/powernap/blob/main/LICENSE/CODE_OF_CONDUCT.md)
 
-PowerNap is a simplistic API client, a small wrapper around httpx that makes your code
-a bit more fluidly
+_A small REST client that recharges your batteries_
+
+PowerNap is a simplistic JSON REST API client, a small wrapper around httpx that makes your code
+read slightly better.
 
 ## Installation
 
