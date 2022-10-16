@@ -1,0 +1,73 @@
+[build-system]
+requires = ["poetry-core", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.poetry]
+name = "powernap"
+version = "0.0.0"
+description = "A small REST client that refills your batteries"
+authors = ["Joachim Jablon <ewjoachim@gmail.com>"]
+license = "MIT License"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+]
+keywords = ["rest", "httpx"]
+repository = "https://github.com/ewjoachim/powernap"
+packages = [{include = "powernap"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+httpx = "*"
+typing-extensions = "^4.4.0"
+
+[tool.poetry.group.lint.dependencies]
+mypy = "*"
+black = "*"
+isort = "*"
+
+[tool.poetry.group.tests.dependencies]
+pytest = "*"
+pytest-cov = "*"
+pytest-call-checker = "^1.0.5"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+pattern = '(?P<base>\d+\.\d+\.\d+)'
+
+[tool.isort]
+profile = "black"
+known_first_party = "powernap"
+add_imports = "__future__.annotations"
+
+[tool.doc8]
+max-line-length = 88
+ignore-path = "docs/_build"
+
+[tool.pytest.ini_options]
+addopts = """
+    --cov-report term-missing --cov-branch --cov-report html --cov-report term
+    --cov=powernap -vv --strict-markers -rfE
+"""
+testpaths = ["tests"]
+
+[tool.mypy]
+no_implicit_optional = true
+
+[tool.coverage.run]
+relative_files = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "raise NotImplementedError",
+    "coverage: exclude",
+    "if TYPE_CHECKING:",
+    "^ +\\.\\.\\.$",
+]
