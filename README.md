@@ -95,6 +95,30 @@ If the response comes with `Content-Type: application/json`, then you'll get
 the "magic" json response as described above. Otherwise, if the content type
 is `text/*`, you'll get a `string`, and otherwise, you'll get `bytes`.
 
+### Exceptions
+
+If you want to avoid `httpx` exceptions to reach your code, so as to maintain
+a good abstraction layer, you may want to subclass Powernap and implement
+`handle_exception(self, exc)`. You'll receive an `httpx.HttpError` and it's
+your responsibility to raise whatever exception you see fit. Not raising an
+exception in this context is considered as an error, though.
+
+```python
+from typing import NoReturn
+
+class ApiError(MyProjectError):
+    pass
+
+class ForbiddenError(ApiError):
+    pass
+
+class ApiClient(PowerNap):
+    def handle_exception(self, exc: httpx.HttpError) -> NoReturn:
+        if exc.response.status_code == 403:
+            raise ForbiddenError
+        raise ApiError
+```
+
 ### More control over input and output
 
 This magic is nice and all, but sometimes, you may want more control.
