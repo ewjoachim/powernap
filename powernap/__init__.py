@@ -73,7 +73,7 @@ class PowerNap:
             response.raise_for_status()
         except httpx.HTTPStatusError as exc:
             self.handle_exception(exc)
-            raise PowerNapError(f"handle_exception should always raise")
+            raise PowerNapError("handle_exception should always raise")
 
         return response
 

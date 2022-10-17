@@ -1,7 +1,9 @@
+from __future__ import annotations
+
+import httpx
 import pytest
 
 import powernap
-import httpx
 
 
 @pytest.fixture
@@ -44,14 +46,14 @@ def test_client__get__root(httpx_client, api_client: powernap.PowerNap):
 
     httpx_client.register.get("a/b")()
 
-    response = api_client("a/b").get(a=1)
+    api_client("a/b").get(a=1)
 
 
 def test_client__get__empty_root(httpx_client, api_client: powernap.PowerNap):
 
     httpx_client.register.get("")()
 
-    response = api_client().get()
+    api_client().get()
 
 
 def test_client__get__text(httpx_client, api_client: powernap.PowerNap):
