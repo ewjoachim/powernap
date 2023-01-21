@@ -2,7 +2,7 @@
 
 [![Deployed to PyPI](https://img.shields.io/pypi/pyversions/powernap?logo=pypi&logoColor=white)](https://pypi.org/pypi/powernap)
 [![GitHub Repository](https://img.shields.io/github/stars/ewjoachim/powernap?logo=github)](https://github.com/ewjoachim/powernap/)
-[![Continuous Integration](https://img.shields.io/github/workflow/status/ewjoachim/powernap/CI?logo=github)](https://github.com/ewjoachim/powernap/actions?workflow=CI)
+[![Continuous Integration](https://img.shields.io/github/actions/workflow/status/ewjoachim/powernap/ci.yml?logo=github)](https://github.com/ewjoachim/powernap/actions?workflow=CI)
 [![Coverage](https://raw.githubusercontent.com/ewjoachim/powernap/python-coverage-comment-action-data/badge.svg)](https://github.com/ewjoachim/powernap/tree/python-coverage-comment-action-data)
 [![MIT License](https://img.shields.io/github/license/ewjoachim/powernap?logo=open-source-initiative&logoColor=white)](https://github.com/ewjoachim/powernap/blob/main/LICENSE.md)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/ewjoachim/powernap/blob/main/LICENSE/CODE_OF_CONDUCT.md)
