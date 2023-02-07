@@ -79,7 +79,6 @@ class PowerNap:
 
 
 def response_contents(response: httpx.Response) -> ResponseType:
-
     content_type = response.headers.get("content-type", "")
     if content_type.startswith("application/json"):
         return response.json(object_hook=JsonObject)
