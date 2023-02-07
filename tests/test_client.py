@@ -32,7 +32,6 @@ def api_client(httpx_client):
 
 
 def test_client__get(httpx_client, api_client: powernap.PowerNap):
-
     httpx_client.register.get("/repos/a/b/issues", params={"a": 1})(json={"foo": "bar"})
 
     response = api_client.repos("a/b").issues.get(a=1)
@@ -43,21 +42,18 @@ def test_client__get(httpx_client, api_client: powernap.PowerNap):
 
 
 def test_client__get__root(httpx_client, api_client: powernap.PowerNap):
-
     httpx_client.register.get("a/b")()
 
     api_client("a/b").get(a=1)
 
 
 def test_client__get__empty_root(httpx_client, api_client: powernap.PowerNap):
-
     httpx_client.register.get("")()
 
     api_client().get()
 
 
 def test_client__get__text(httpx_client, api_client: powernap.PowerNap):
-
     httpx_client.register.get("/repos/a/b/issues", params={"a": 1})(
         content="foo", headers={"Content-Type": "text/plain"}
     )
@@ -68,7 +64,6 @@ def test_client__get__text(httpx_client, api_client: powernap.PowerNap):
 
 
 def test_client__get__bytes(httpx_client, api_client: powernap.PowerNap):
-
     httpx_client.register.get("/repos/a/b/issues", params={"a": 1})(
         content=b"foo", headers={"Content-Type": "application/octet-stream"}
     )
@@ -79,7 +74,6 @@ def test_client__get__bytes(httpx_client, api_client: powernap.PowerNap):
 
 
 def test_client__get__output(httpx_client, api_client: powernap.PowerNap):
-
     httpx_client.register.get("/repos/a/b/issues", params={"a": 1})(json={"foo": "bar"})
 
     response = api_client.repos("a/b").issues.get.o(a=1)
@@ -88,7 +82,6 @@ def test_client__get__output(httpx_client, api_client: powernap.PowerNap):
 
 
 def test_client__get__input(httpx_client, api_client: powernap.PowerNap):
-
     httpx_client.register.get("/repos/a/b/issues", params={"a": 1})(json={"foo": "bar"})
 
     response = api_client.repos("a/b").issues.get.i(params={"a": 1})
@@ -97,7 +90,6 @@ def test_client__get__input(httpx_client, api_client: powernap.PowerNap):
 
 
 def test_client__get__input_output(httpx_client, api_client: powernap.PowerNap):
-
     httpx_client.register.get("/repos/a/b/issues", params={"a": 1})(json={"foo": "bar"})
 
     response = api_client.repos("a/b").issues.get.io(params={"a": 1})
