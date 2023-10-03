@@ -26,7 +26,7 @@ repos:
   - id: pycln
 
 - repo: https://github.com/psf/black
-  rev: "23.9.1"
+  rev: "22.10.0"
   hooks:
   - id: black
 
@@ -41,7 +41,7 @@ repos:
   - id: flake8
 
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: "v1.5.1"
+  rev: "v0.982"
   hooks:
   - id: mypy
     files: ^pytest_call_checker/
