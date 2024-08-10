@@ -31,8 +31,8 @@ repos:
     hooks:
       - id: pyright
         additional_dependencies:
-          - httpx==0.24.1
-          - typing-extensions==4.7.1
+          - httpx==0.27.0
+          - typing-extensions==4.12.2
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.5.7
     hooks:
