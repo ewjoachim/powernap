@@ -2,10 +2,10 @@
 
 [Full report](https://htmlpreview.github.io/?https://github.com/ewjoachim/powernap/blob/python-coverage-comment-action-data/htmlcov/index.html)
 
-| Name                     |    Stmts |     Miss |   Branch |   BrPart |   Cover |   Missing |
-|------------------------- | -------: | -------: | -------: | -------: | ------: | --------: |
-| powernap/\_\_init\_\_.py |       80 |        0 |       18 |        5 |     95% |142->141, 148->147, 154->153, 160->159, 166->165 |
-|                **TOTAL** |   **80** |    **0** |   **18** |    **5** | **95%** |           |
+| Name                     |    Stmts |     Miss |   Branch |   BrPart |    Cover |   Missing |
+|------------------------- | -------: | -------: | -------: | -------: | -------: | --------: |
+| powernap/\_\_init\_\_.py |       80 |        0 |       18 |        0 |     100% |           |
+|                **TOTAL** |   **80** |    **0** |   **18** |    **0** | **100%** |           |
 
 
 ## Setup coverage badge
