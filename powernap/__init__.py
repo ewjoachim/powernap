@@ -98,7 +98,7 @@ class JsonObject(dict):
         try:
             return self[key]
         except KeyError:
-            raise AttributeError(r"'Dict' object has no attribute '%s'" % key)
+            raise AttributeError(rf"'Dict' object has no attribute '{key}'")
 
 
 class MethodCaller:

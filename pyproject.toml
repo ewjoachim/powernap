@@ -24,14 +24,13 @@ repository = "https://github.com/ewjoachim/powernap"
 packages = [{include = "powernap"}]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 httpx = "*"
-typing-extensions = "^4.4.0"
+typing-extensions = "*"
 
 [tool.poetry.group.lint.dependencies]
-mypy = "*"
-black = "*"
-isort = "*"
+ruff = "*"
+pyright = "*"
 
 [tool.poetry.group.tests.dependencies]
 pytest = "*"
@@ -42,15 +41,6 @@ pytest-call-checker = "^1.0.5"
 enable = true
 pattern = '(?P<base>\d+\.\d+\.\d+)'
 
-[tool.isort]
-profile = "black"
-known_first_party = "powernap"
-add_imports = "__future__.annotations"
-
-[tool.doc8]
-max-line-length = 88
-ignore-path = "docs/_build"
-
 [tool.pytest.ini_options]
 addopts = """
     --cov-report term-missing --cov-branch --cov-report html --cov-report term
@@ -58,16 +48,31 @@ addopts = """
 """
 testpaths = ["tests"]
 
-[tool.mypy]
-no_implicit_optional = true
 
 [tool.coverage.run]
 relative_files = true
 
-[tool.coverage.report]
-exclude_lines = [
-    "raise NotImplementedError",
-    "coverage: exclude",
-    "if TYPE_CHECKING:",
-    "^ +\\.\\.\\.$",
+[tool.ruff]
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+extend-select = [
+    "UP",  # pyupgrade
+    "I",   # isort
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "RUF", # ruff
 ]
+fixable = ["ALL"]
+extend-ignore = [
+    "E501", # line too long
+    # It's not exactly false but it's not supported enough by our dependencies,
+    # so ruff is fighting with Pyright on this.
+    "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+]
+
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+
+[tool.pyright]
+exclude = ["tests", ".venv"]
