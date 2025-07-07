@@ -27,14 +27,14 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
   - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.402
+    rev: v1.1.375
     hooks:
       - id: pyright
         additional_dependencies:
           - httpx==0.27.0
           - typing-extensions==4.12.2
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.2
+    rev: v0.5.7
     hooks:
       - id: ruff
         args: [--fix, --unsafe-fixes]
