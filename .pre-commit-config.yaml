@@ -26,25 +26,23 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: mixed-line-ending
+
   - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.375
+    rev: v1.1.403
     hooks:
       - id: pyright
         additional_dependencies:
           - httpx==0.27.0
           - typing-extensions==4.12.2
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.7
+    rev: v0.12.3
     hooks:
       - id: ruff
         args: [--fix, --unsafe-fixes]
       - id: ruff-format
 
-  - repo: https://github.com/ewjoachim/poetry-to-pre-commit
-    rev: 2.1.0
+  - repo: https://github.com/ewjoachim/sync-pre-commit-with-uv
+    rev: 1.0.2
     hooks:
-      - id: sync-repos
-        args: [--map=pyright-python=pyright, --map=ruff-pre-commit=ruff]
-
-      - id: sync-hooks-additional-dependencies
-        args: [--bind=pyright=main]
+      - id: sync

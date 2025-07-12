@@ -1,45 +1,50 @@
 [build-system]
-requires = ["poetry-core", "poetry-dynamic-versioning"]
-build-backend = "poetry_dynamic_versioning.backend"
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.uv-dynamic-versioning]
+pattern = "default-unprefixed"
+
+[project]
 name = "powernap"
-version = "0.0.0"
+dynamic = ["version"]
 description = "A small REST client that refills your batteries"
-authors = ["Joachim Jablon <ewjoachim@gmail.com>"]
-license = "MIT License"
+authors = [{ name = "Joachim Jablon", email = "ewjoachim@gmail.com" }]
+requires-python = ">=3.9"
 readme = "README.md"
+license = { file = "LICENSE.md" }
+keywords = ["rest", "httpx"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "License :: OSI Approved :: MIT License",
 ]
-keywords = ["rest", "httpx"]
-repository = "https://github.com/ewjoachim/powernap"
-packages = [{include = "powernap"}]
+dependencies = ["httpx", "typing-extensions"]
 
-[tool.poetry.dependencies]
-python = "^3.8"
-httpx = "*"
-typing-extensions = "*"
+[project.urls]
+Repository = "https://github.com/ewjoachim/powernap"
 
-[tool.poetry.group.lint.dependencies]
-ruff = "*"
-pyright = "*"
+[dependency-groups]
+lint = ["ruff", "pyright"]
+tests = ["pytest", "pytest-cov", "pytest-call-checker>=1.0.5,<2"]
 
-[tool.poetry.group.tests.dependencies]
-pytest = "*"
-pytest-cov = "*"
-pytest-call-checker = "^1.0.5"
+[tool.uv]
+default-groups = ["lint", "tests"]
 
-[tool.poetry-dynamic-versioning]
-enable = true
-pattern = '(?P<base>\d+\.\d+\.\d+)'
+[tool.hatch.build.targets.sdist]
+include = ["powernap"]
+
+[tool.hatch.build.targets.wheel]
+include = ["powernap"]
 
 [tool.pytest.ini_options]
 addopts = """
@@ -47,7 +52,6 @@ addopts = """
     --cov=powernap -vv --strict-markers -rfE
 """
 testpaths = ["tests"]
-
 
 [tool.coverage.run]
 relative_files = true
@@ -76,3 +80,6 @@ required-imports = ["from __future__ import annotations"]
 
 [tool.pyright]
 exclude = ["tests", ".venv"]
+
+[tool.sync-pre-commit-with-uv.pyright-python]
+pypi_package_name = "pyright"
