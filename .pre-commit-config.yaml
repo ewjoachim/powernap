@@ -4,7 +4,7 @@ ci:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       # File names
       - id: check-case-conflict
@@ -28,7 +28,7 @@ repos:
       - id: mixed-line-ending
 
   - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.403
+    rev: v1.1.406
     hooks:
       - id: pyright
         additional_dependencies:
@@ -36,13 +36,13 @@ repos:
           - typing-extensions==4.12.2
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.3
+    rev: v0.13.3
     hooks:
       - id: ruff
         args: [--fix, --unsafe-fixes]
       - id: ruff-format
 
   - repo: https://github.com/ewjoachim/sync-pre-commit-with-uv
-    rev: 1.0.2
+    rev: 1.1.0
     hooks:
       - id: sync
