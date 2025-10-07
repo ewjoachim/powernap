@@ -4,7 +4,7 @@ ci:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       # File names
       - id: check-case-conflict
@@ -43,6 +43,6 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/ewjoachim/sync-pre-commit-with-uv
-    rev: 1.0.2
+    rev: 1.1.0
     hooks:
       - id: sync
