@@ -46,8 +46,8 @@ jobs:
           path: .coverage.${{ matrix.python-version }}
           include-hidden-files: true
 
-  static-typing:
-    name: Run Pyright
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -58,22 +58,10 @@ jobs:
           python-version: "3.9"
 
       - name: Install dependencies
-        run: uv sync --all-extras
+        run: uv sync --all-groups
 
-      - name: Activate virtualenv
-        run: echo ".venv/bin" >> $GITHUB_PATH
-
-      - name: Extract pyright version from pre-commit
-        id: pre-commit-pyright-version
-        run: >
-          yq '.repos
-          | filter(.repo == "https://github.com/RobertCraigie/pyright-python").0.rev
-          | "pyright-version="+sub("^v", "") | sub(".post\d+$"; "")'
-          .pre-commit-config.yaml >> $GITHUB_OUTPUT
-
-      - uses: jakebailey/pyright-action@v2
-        with:
-          version: ${{ steps.pre-commit-pyright-version.outputs.pyright-version }}
+      - name: Run prek
+        run: uvx prek run --all-files
 
   report-status:
     name: success
@@ -115,7 +103,7 @@ jobs:
       id-token: write
     needs:
       - tests
-      - static-typing
+      - lint
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:

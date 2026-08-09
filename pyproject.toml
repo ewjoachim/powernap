@@ -34,7 +34,7 @@ dependencies = ["httpx", "typing-extensions"]
 Repository = "https://github.com/ewjoachim/powernap"
 
 [dependency-groups]
-lint = ["ruff", "pyright"]
+lint = ["ruff", "basedpyright"]
 tests = ["pytest", "pytest-cov", "pytest-call-checker>=1.0.5,<2"]
 
 [tool.uv]
@@ -78,8 +78,6 @@ extend-ignore = [
 [tool.ruff.lint.isort]
 required-imports = ["from __future__ import annotations"]
 
-[tool.pyright]
+[tool.basedpyright]
 exclude = ["tests", ".venv"]
-
-[tool.sync-pre-commit-with-uv.pyright-python]
-pypi_package_name = "pyright"
+typeCheckingMode = "standard"
