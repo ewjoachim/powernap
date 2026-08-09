@@ -34,7 +34,7 @@ dependencies = ["httpx", "typing-extensions"]
 Repository = "https://github.com/ewjoachim/powernap"
 
 [dependency-groups]
-lint = ["ruff", "basedpyright", "zizmor"]
+lint = ["ruff", "basedpyright", "zizmor", "prek"]
 tests = ["pytest", "pytest-cov", "pytest-call-checker>=1.0.5,<2"]
 
 [tool.uv]
