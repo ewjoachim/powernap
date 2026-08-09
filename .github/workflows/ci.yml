@@ -11,6 +11,9 @@ on:
 concurrency:
   group: ${{ github.event_name }}-${{ github.ref }}
 
+env:
+  UV_FROZEN: "true"
+
 permissions:
   contents: read
 
