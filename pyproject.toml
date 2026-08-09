@@ -34,7 +34,7 @@ dependencies = ["httpx", "typing-extensions"]
 Repository = "https://github.com/ewjoachim/powernap"
 
 [dependency-groups]
-lint = ["ruff", "basedpyright"]
+lint = ["ruff", "basedpyright", "zizmor"]
 tests = ["pytest", "pytest-cov", "pytest-call-checker>=1.0.5,<2"]
 
 [tool.uv]
@@ -66,6 +66,7 @@ extend-select = [
     "E",   # pycodestyle errors
     "W",   # pycodestyle warnings
     "RUF", # ruff
+    "T10", # flake8-debugger
 ]
 fixable = ["ALL"]
 extend-ignore = [

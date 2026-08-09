@@ -48,3 +48,11 @@ repos:
         language: system
         types_or: [python, pyi]
         require_serial: true
+
+      - id: zizmor
+        name: zizmor
+        entry: uv run --group lint zizmor --no-progress --fix=all
+        language: system
+        types: [yaml]
+        files: (\.github/(workflows/.*|dependabot\.ya?ml))|(action\.ya?ml)$
+        require_serial: true
