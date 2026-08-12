@@ -131,7 +131,7 @@ def test_json_object__error():
     obj = powernap.JsonObject({"a": 1})
 
     with pytest.raises(AttributeError):
-        obj.b
+        _ = obj.b
 
 
 def test_client__get_error(httpx_client, api_client: powernap.PowerNap):
