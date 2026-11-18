@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-from typing import NoReturn
+from typing import NoReturn, TypeAlias
 
 import httpx
-from typing_extensions import TypeAlias
 
 METHODS = {"get", "put", "post", "patch", "delete"}
 

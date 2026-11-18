@@ -13,7 +13,7 @@ name = "powernap"
 dynamic = ["version"]
 description = "A small REST client that refills your batteries"
 authors = [{ name = "Joachim Jablon", email = "ewjoachim@gmail.com" }]
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 readme = "README.md"
 license = { file = "LICENSE.md" }
 keywords = ["rest", "httpx"]
@@ -21,11 +21,11 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
     "License :: OSI Approved :: MIT License",
 ]
 dependencies = ["httpx", "typing-extensions"]
